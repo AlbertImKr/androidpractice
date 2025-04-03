@@ -19,6 +19,17 @@ class SecondFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    /**
+     * Inflates the fragment's layout using view binding.
+     *
+     * This method initializes the fragment's view binding by inflating the layout with the provided inflater
+     * and container, and then returns the binding's root view.
+     *
+     * @param inflater LayoutInflater used to inflate the fragment's view.
+     * @param container Optional parent view for the fragment's UI.
+     * @param savedInstanceState Previously saved state, if any.
+     * @return The root view of the inflated layout.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +40,14 @@ class SecondFragment : Fragment() {
 
     }
 
+    /**
+     * Initializes the fragment's view and sets up navigation for the second button.
+     *
+     * Configures a click listener on the second button to navigate from SecondFragment to FirstFragment.
+     *
+     * @param view The fragment's root view.
+     * @param savedInstanceState If non-null, the fragment is being re-constructed from a previous state.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -37,6 +56,13 @@ class SecondFragment : Fragment() {
         }
     }
 
+    /**
+     * Releases the view binding reference to prevent memory leaks.
+     *
+     * This method overrides the default onDestroyView to first call the superclass implementation,
+     * then nullifies the binding reference, ensuring that the view binding is not accessed after
+     * the fragment's view is destroyed.
+     */
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
